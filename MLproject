@@ -1,7 +1,12 @@
 name: test_mlflow_1
 
-conda_env: conda.yaml
-
+# Use pip to install dependencies
+environment:
+  python: "3.10"
+  dependencies:
+    - pip
+    - requirements.txt
+    
 entry_points:
   main:
     parameters:
