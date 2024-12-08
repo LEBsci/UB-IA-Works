@@ -96,7 +96,7 @@ def train_model():
     model.fit(X_train, y_train)
 
     # Log the model
-    mlflow.sklearn.log_model(model, "DecisionTreeModel")
+    mlflow.sklearn.log_model(model, "DecisionTreeModel", input_example=X_train.head(50))
 
     # Predict the test set
     y_pred = model.predict(X_test)
