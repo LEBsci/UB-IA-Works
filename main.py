@@ -7,7 +7,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer
 from sklearn.impute import SimpleImputer
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score, ConfusionMatrixDisplay
 from sklearn.tree import DecisionTreeClassifier, plot_tree
 
 
@@ -108,6 +108,10 @@ def train_model():
     mlflow.log_metric("mse", mse)
     mlflow.log_metric("mae", mae)
     mlflow.log_metric("r2", r2)
+
+    # Display the confusion matrix
+    disp = ConfusionMatrixDisplay.from_predictions(y_test, y_pred, display_labels=['<=50K', '>50K'], normalize='true')
+    disp.plot()
 
 
 
