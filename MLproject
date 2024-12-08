@@ -1,4 +1,4 @@
-name: test_mlflow_1
+name: adult_income_population
 
 # Use pip to install dependencies
 environment:
@@ -9,6 +9,4 @@ environment:
     
 entry_points:
   main:
-    parameters:
-      max_iter: {type: int, default: 200}
-    command: "python main.py --max_iter {max_iter}"
+    command: "python main.py"
