@@ -8,7 +8,7 @@ from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import FunctionTransformer
 from sklearn.impute import SimpleImputer
 from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.tree import DecisionTreeClassifier, plot_tree
 
 
 '''Functions to clean and organize the data'''
@@ -108,6 +108,9 @@ def train_model():
     mlflow.log_metric("mse", mse)
     mlflow.log_metric("mae", mae)
     mlflow.log_metric("r2", r2)
+
+    # Plot the tree
+    plot_tree(model, filled=True, feature_names=X_train.columns, class_names=['<=50K', '>50K'])
 
 if __name__ == "__main__":
     train_model()
